@@ -10,6 +10,7 @@ import { ChatPage } from '../pages/chat/chat';
 import { NotificationPage } from '../pages/notification/notification';
 import { MorePage } from '../pages/more/more';
 import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -27,12 +28,15 @@ import { IonicStorageModule } from '@ionic/storage';
     NotificationPage,
     MorePage,
     LoginPage,
+    RegisterPage,
     TabsPage
   ],
   imports: [
     BrowserModule,
     HttpModule, // 全局需要导入HTTP
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      backButtonText: '返回'
+    }),
     IonicStorageModule.forRoot() // 全局定义 Storage 的模块
   ],
   bootstrap: [IonicApp],
@@ -44,6 +48,7 @@ import { IonicStorageModule } from '@ionic/storage';
     NotificationPage,
     MorePage,
     LoginPage,
+    RegisterPage,
     TabsPage
   ],
   providers: [

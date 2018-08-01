@@ -28,7 +28,7 @@ export class RestProvider {
   // private apiUrlFeeds = 'https://imoocqa.gugujiankong.com/api/feeds/get';
 
   //account
-  // private apiUrlRegister = 'https://imoocqa.gugujiankong.com/api/account/register';
+  private apiUrlRegister = 'https://imoocqa.gugujiankong.com/api/account/register';
   private apiUrlLogin = 'https://imoocqa.gugujiankong.com/api/account/login';
   // private apiUrlUserInfo = 'https://imoocqa.gugujiankong.com/api/account/userinfo';
   // private apiUrlUpdateNickName = 'https://imoocqa.gugujiankong.com/api/account/updatenickname';
@@ -53,6 +53,20 @@ export class RestProvider {
    */
   login(mobile, password):Observable<string[]>{
     return this.getUrlReturn(this.apiUrlLogin + '?mobile=' + mobile + '&password=' + password);
+  }
+
+
+  /**
+   *  注册请求
+   *
+   * @param {*} mobile
+   * @param {*} nickName
+   * @param {*} password
+   * @returns {Observable<string[]>}
+   * @memberof RestProvider
+   */
+  register(mobile, nickName, password):Observable<string[]>{
+    return this.getUrlReturn(this.apiUrlRegister + '?mobile=' + mobile +'&nickName=' + nickName + '&password=' + password);
   }
 
   /**
