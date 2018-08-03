@@ -23,7 +23,7 @@ import { IonicStorageModule } from '@ionic/storage';
 
 //导入四个外部加载进来的组件
 import { File } from '@ionic-native/file';
-import { Transfer, TransferObject } from '@ionic-native/transfer';
+import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 

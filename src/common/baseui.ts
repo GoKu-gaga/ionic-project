@@ -1,4 +1,4 @@
-import { Loading, LoadingController, ToastController, Toast } from "ionic-angular/umd";
+import { Loading, LoadingController, ToastController, Toast } from "ionic-angular";
 
 /**
  * UI 层的所有公用方法的抽象类

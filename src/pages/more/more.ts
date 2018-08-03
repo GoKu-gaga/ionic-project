@@ -57,7 +57,7 @@ export class MorePage extends BaseUI {
   loadUserPage() {
     this.storage.get('UserId').then((val) => {
       if (val != null) {
-        var loading = this.showLoading(this.loadCtrl, '加载中...')
+        var loading = super.showLoading(this.loadCtrl, '加载中...')
         this.rest.getUserInfo(val)
         .subscribe(
           userinfo => {
