@@ -13,6 +13,7 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { UserPage } from '../pages/user/user';
 import { HeadfacePage } from '../pages/headface/headface';
+import { QuestionPage } from '../pages/question/question';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -39,6 +40,8 @@ import { Camera } from '@ionic-native/camera';
     RegisterPage,
     UserPage,
     HeadfacePage,
+    QuestionPage,
+    QuestionPage,
     TabsPage
   ],
   imports: [
@@ -61,6 +64,7 @@ import { Camera } from '@ionic-native/camera';
     RegisterPage,
     UserPage,
     HeadfacePage,
+    QuestionPage,
     TabsPage
   ],
   providers: [

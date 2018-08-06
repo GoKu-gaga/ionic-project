@@ -35,8 +35,8 @@ export class RestProvider {
 
   // private apiGetUserQuestionList = "https://imoocqa.gugujiankong.com/api/account/getuserquestionlist";
 
-  // //question
-  // private apiUrlQuestionSave = 'https://imoocqa.gugujiankong.com/api/question/save';
+  //question
+  private apiUrlQuestionSave = 'https://imoocqa.gugujiankong.com/api/question/save';
   // private apiUrlQuestionList = 'https://imoocqa.gugujiankong.com/api/question/list?index=1&number=10';
   // private apiUrlGetQuestion = "https://imoocqa.gugujiankong.com/api/question/get";
   // private apiUrlGetQuestionWithUser = "https://imoocqa.gugujiankong.com/api/question/getwithuser";
@@ -55,12 +55,40 @@ export class RestProvider {
     return this.getUrlReturn(this.apiUrlLogin + '?mobile=' + mobile + '&password=' + password);
   }
   
+  /**
+   *  获取用户信息
+   *
+   * @param {*} userId
+   * @returns {Observable<string[]>}
+   * @memberof RestProvider
+   */
   getUserInfo(userId):Observable<string[]>{
     return this.getUrlReturn(this.apiUrlUserInfo + '?userid=' + userId);
   }
   
+  /**
+   *  更新用户昵称
+   *
+   * @param {*} userId
+   * @param {*} nickName
+   * @returns {Observable<string[]>}
+   * @memberof RestProvider
+   */
   updateNickName(userId, nickName):Observable<string[]>{
     return this.getUrlReturn(this.apiUrlUpdateNickName + '?userid=' + userId + '&nickname=' + nickName);
+  }
+  
+  /**
+   *  保存提问
+   *
+   * @param {*} userId
+   * @param {*} title
+   * @param {*} content
+   * @returns {Observable<string[]>}
+   * @memberof RestProvider
+   */
+  saveQuestion(userId, title, content):Observable<string[]> {
+    return this.getUrlReturn(this.apiUrlQuestionSave + '?userid=' + userId + '&title=' + title + '&content=' + content);
   }
   /**
    *  注册请求
