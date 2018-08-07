@@ -24,8 +24,9 @@ export class RestProvider {
   constructor(public http: Http) {
     // console.log('Hello RestProvider Provider');
   }
+
   //feed
-  // private apiUrlFeeds = 'https://imoocqa.gugujiankong.com/api/feeds/get';
+  private apiUrlFeeds = 'https://imoocqa.gugujiankong.com/api/feeds/get';
 
   //account
   private apiUrlRegister = 'https://imoocqa.gugujiankong.com/api/account/register';
@@ -39,9 +40,9 @@ export class RestProvider {
   private apiUrlQuestionSave = 'https://imoocqa.gugujiankong.com/api/question/save';
   // private apiUrlQuestionList = 'https://imoocqa.gugujiankong.com/api/question/list?index=1&number=10';
   // private apiUrlGetQuestion = "https://imoocqa.gugujiankong.com/api/question/get";
-  // private apiUrlGetQuestionWithUser = "https://imoocqa.gugujiankong.com/api/question/getwithuser";
-  // private apiUrlAnswer = "https://imoocqa.gugujiankong.com/api/question/answer";
-  // private apiUrlSaveFavourite = "https://imoocqa.gugujiankong.com/api/question/savefavourite";
+  private apiUrlGetQuestionWithUser = "https://imoocqa.gugujiankong.com/api/question/getwithuser";
+  private apiUrlAnswer = "https://imoocqa.gugujiankong.com/api/question/answer";
+  private apiUrlSaveFavourite = "https://imoocqa.gugujiankong.com/api/question/savefavourite";
   
   /**
    *  根据用户的手机号码和密码进行登录
@@ -101,6 +102,36 @@ export class RestProvider {
    */
   register(mobile, nickName, password):Observable<string[]>{
     return this.getUrlReturn(this.apiUrlRegister + '?mobile=' + mobile +'&nickName=' + nickName + '&password=' + password);
+  }
+
+  /**
+   *  请求首页的 feeds 流
+   *
+   * @returns {Observable<string[]>}
+   * @memberof RestProvider
+   */
+  getFeeds():Observable<string[]>{
+    return this.getUrlReturn(this.apiUrlFeeds);
+  }
+
+  /**
+   * 获取问题的详情，传递 userid 获取到当前用户有没有关注此问题
+   * 
+   * @param {any} questionId 
+   * @param {any} userId 
+   * @returns {Observable<string[]>} 
+   * @memberof RestProvider
+   */
+  getQuestionWithUser(questionId, userId): Observable<string[]> {
+    return this.getUrlReturn(this.apiUrlGetQuestionWithUser + "?id=" + questionId + "&userid=" + userId);
+  }
+
+  saveFavourite(questionId, userId): Observable<string[]> {
+    return this.getUrlReturn(this.apiUrlSaveFavourite + "?questionid=" + questionId + "&userid=" + userId);
+  }
+
+  answer(userId, questionId, content): Observable<string[]> {
+    return this.getUrlReturn(this.apiUrlAnswer + "?userid=" + userId + "&questionid=" + questionId + "&content=" + content);
   }
 
   /**
