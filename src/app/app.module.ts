@@ -16,6 +16,7 @@ import { HeadfacePage } from '../pages/headface/headface';
 import { QuestionPage } from '../pages/question/question';
 import { DetailsPage } from '../pages/details/details';
 import { AnswerPage } from '../pages/answer/answer';
+import { ChatdetailsPage } from '../pages/chatdetails/chatdetails';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -23,12 +24,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RestProvider } from '../providers/rest/rest';
 import { IonicStorageModule } from '@ionic/storage';
-
+import { EmojiProvider } from '../providers/emoji/emoji';
+import { ComponentsModule } from '../components/components.module'
 //导入四个外部加载进来的组件
 import { File } from '@ionic-native/file';
 import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
+import { ChatserviceProvider } from '../providers/chatservice/chatservice';
+
+import { RelativetimePipe } from '../pipes/relativetime/relativetime'
 
 @NgModule({
   declarations: [
@@ -45,7 +50,9 @@ import { Camera } from '@ionic-native/camera';
     QuestionPage,
     DetailsPage,
     AnswerPage,
-    TabsPage
+    ChatdetailsPage,
+    TabsPage,
+    RelativetimePipe
   ],
   imports: [
     BrowserModule,
@@ -53,6 +60,7 @@ import { Camera } from '@ionic-native/camera';
     IonicModule.forRoot(MyApp, {
       backButtonText: '返回'
     }),
+    ComponentsModule,
     IonicStorageModule.forRoot() // 全局定义 Storage 的模块
   ],
   bootstrap: [IonicApp],
@@ -70,6 +78,7 @@ import { Camera } from '@ionic-native/camera';
     QuestionPage,
     DetailsPage,
     AnswerPage,
+    ChatdetailsPage,
     TabsPage
   ],
   providers: [
@@ -80,7 +89,9 @@ import { Camera } from '@ionic-native/camera';
     File,
     Transfer,
     FilePath,
-    Camera
+    Camera,
+    EmojiProvider,
+    ChatserviceProvider
   ]
 })
 export class AppModule {}
