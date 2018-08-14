@@ -39,11 +39,14 @@ export class RestProvider {
   //question
   private apiUrlQuestionSave = 'https://imoocqa.gugujiankong.com/api/question/save';
   private apiUrlQuestionList = 'https://imoocqa.gugujiankong.com/api/question/list?index=1&number=10';
-  // private apiUrlGetQuestion = "https://imoocqa.gugujiankong.com/api/question/get";
-  private apiUrlGetQuestionWithUser = "https://imoocqa.gugujiankong.com/api/question/getwithuser";
-  private apiUrlAnswer = "https://imoocqa.gugujiankong.com/api/question/answer";
-  private apiUrlSaveFavourite = "https://imoocqa.gugujiankong.com/api/question/savefavourite";
+  // private apiUrlGetQuestion = 'https://imoocqa.gugujiankong.com/api/question/get';
+  private apiUrlGetQuestionWithUser = 'https://imoocqa.gugujiankong.com/api/question/getwithuser';
+  private apiUrlAnswer = 'https://imoocqa.gugujiankong.com/api/question/answer';
+  private apiUrlSaveFavourite = 'https://imoocqa.gugujiankong.com/api/question/savefavourite';
   
+  // notification
+  private apiUrlUserNotifications = 'https://imoocqa.gugujiankong.com/api/account/usernotifications'
+
   /**
    *  根据用户的手机号码和密码进行登录
    *
@@ -136,6 +139,10 @@ export class RestProvider {
 
   getQuestions():Observable<string[]>{
     return this.getUrlReturn(this.apiUrlFeeds);
+  }
+
+  getUserNotifications(userId):Observable<string[]>{
+    return this.getUrlReturn(this.apiUrlUserNotifications + "?userid=" + userId);
   }
 
   /**
