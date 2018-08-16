@@ -17,6 +17,7 @@ import { QuestionPage } from '../pages/question/question';
 import { DetailsPage } from '../pages/details/details';
 import { AnswerPage } from '../pages/answer/answer';
 import { ChatdetailsPage } from '../pages/chatdetails/chatdetails';
+import { UserdatalistPage } from '../pages/userdatalist/userdatalist';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -51,6 +52,7 @@ import { RelativetimePipe } from '../pipes/relativetime/relativetime'
     DetailsPage,
     AnswerPage,
     ChatdetailsPage,
+    UserdatalistPage,
     TabsPage,
     RelativetimePipe
   ],
@@ -79,6 +81,7 @@ import { RelativetimePipe } from '../pipes/relativetime/relativetime'
     DetailsPage,
     AnswerPage,
     ChatdetailsPage,
+    UserdatalistPage,
     TabsPage
   ],
   providers: [

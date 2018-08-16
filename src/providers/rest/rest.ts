@@ -34,7 +34,7 @@ export class RestProvider {
   private apiUrlUserInfo = 'https://imoocqa.gugujiankong.com/api/account/userinfo';
   private apiUrlUpdateNickName = 'https://imoocqa.gugujiankong.com/api/account/updatenickname';
 
-  // private apiGetUserQuestionList = "https://imoocqa.gugujiankong.com/api/account/getuserquestionlist";
+  private apiGetUserQuestionList = "https://imoocqa.gugujiankong.com/api/account/getuserquestionlist";
 
   //question
   private apiUrlQuestionSave = 'https://imoocqa.gugujiankong.com/api/question/save';
@@ -129,6 +129,15 @@ export class RestProvider {
     return this.getUrlReturn(this.apiUrlGetQuestionWithUser + "?id=" + questionId + "&userid=" + userId);
   }
 
+
+  /**
+   *
+   *
+   * @param {*} questionId
+   * @param {*} userId
+   * @returns {Observable<string[]>}
+   * @memberof RestProvider
+   */
   saveFavourite(questionId, userId): Observable<string[]> {
     return this.getUrlReturn(this.apiUrlSaveFavourite + "?questionid=" + questionId + "&userid=" + userId);
   }
@@ -137,12 +146,37 @@ export class RestProvider {
     return this.getUrlReturn(this.apiUrlAnswer + "?userid=" + userId + "&questionid=" + questionId + "&content=" + content);
   }
 
+  /**
+   *  获取所有的新问题
+   *
+   * @returns {Observable<string[]>}
+   * @memberof RestProvider
+   */
   getQuestions():Observable<string[]>{
     return this.getUrlReturn(this.apiUrlFeeds);
   }
 
+  /**
+   *  获取用户提醒消息
+   *
+   * @param {*} userId
+   * @returns {Observable<string[]>}
+   * @memberof RestProvider
+   */
   getUserNotifications(userId):Observable<string[]>{
     return this.getUrlReturn(this.apiUrlUserNotifications + "?userid=" + userId);
+  }
+
+  /**
+   *  获取用户相关问题列表
+   *
+   * @param {*} userId
+   * @param {*} type question/answer/favourite
+   * @returns {Observable<string[]>}
+   * @memberof RestProvider
+   */
+  getUserQuestionList(userId, type):Observable<string[]>{
+    return this.getUrlReturn(this.apiGetUserQuestionList + "?userid=" + userId + '&type=' + type);
   }
 
   /**
