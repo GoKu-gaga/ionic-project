@@ -88,5 +88,6 @@ $colors: (
 @import "roboto";
 @import "noto-sans";
 
-// 导入自定义的css
-@import "light"
+// 导入主题样式
+@import "theme.dark";
+@import "theme.light";

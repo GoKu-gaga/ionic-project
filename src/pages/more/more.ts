@@ -16,6 +16,7 @@ import { BaseUI } from '../../common/baseui';
 import { RestProvider } from '../../providers/rest/rest';
 import { UserPage } from '../user/user';
 import { UserdatalistPage } from '../userdatalist/userdatalist';
+import { SettingsProvider } from '../../providers/settings/settings';
 /**
  * Generated class for the MorePage page.
  *
@@ -33,14 +34,18 @@ export class MorePage extends BaseUI {
   public logined: boolean = false;
   headface: string;
   userinfo: string[];
+  selectedTheme: string;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public storage: Storage,
     public loadCtrl: LoadingController,
-    public rest: RestProvider) {
+    public rest: RestProvider,
+    private settings: SettingsProvider) {
     super();
+    
+    settings.getActiveTheme().subscribe(val => this.selectedTheme = val)
   }
 
   showModal() {
@@ -60,15 +65,15 @@ export class MorePage extends BaseUI {
       if (val != null) {
         var loading = super.showLoading(this.loadCtrl, '加载中...')
         this.rest.getUserInfo(val)
-        .subscribe(
-          userinfo => {
-            this.userinfo = userinfo;
-            this.headface = userinfo['UserHeadface'] + '?' + (new Date()).valueOf();
-            this.notLogin = false;
-            this.logined = true;
-            loading.dismiss();
-          }
-        )
+          .subscribe(
+            userinfo => {
+              this.userinfo = userinfo;
+              this.headface = userinfo['UserHeadface'] + '?' + (new Date()).valueOf();
+              this.notLogin = false;
+              this.logined = true;
+              loading.dismiss();
+            }
+          )
       } else {
         this.notLogin = true;
         this.logined = false;
@@ -77,10 +82,19 @@ export class MorePage extends BaseUI {
   }
 
   gotoDatalist(type) {
-    this.navCtrl.push(UserdatalistPage, {'dataType': type})
+    this.navCtrl.push(UserdatalistPage, { 'dataType': type })
   }
 
   gotoUserPage() {
     this.navCtrl.push(UserPage)
+  }
+
+  toggleChangeTheme() {
+    if (this.selectedTheme === 'dark-theme') {
+      this.settings.setActiveTheme('light-theme');
+    }
+    else {
+      this.settings.setActiveTheme('dark-theme');
+    }
   }
 }

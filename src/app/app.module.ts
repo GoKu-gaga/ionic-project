@@ -35,6 +35,7 @@ import { Camera } from '@ionic-native/camera';
 import { ChatserviceProvider } from '../providers/chatservice/chatservice';
 
 import { RelativetimePipe } from '../pipes/relativetime/relativetime'
+import { SettingsProvider } from '../providers/settings/settings';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import { RelativetimePipe } from '../pipes/relativetime/relativetime'
     FilePath,
     Camera,
     EmojiProvider,
-    ChatserviceProvider
+    ChatserviceProvider,
+    SettingsProvider
   ]
 })
 export class AppModule {}
