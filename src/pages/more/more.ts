@@ -16,7 +16,9 @@ import { BaseUI } from '../../common/baseui';
 import { RestProvider } from '../../providers/rest/rest';
 import { UserPage } from '../user/user';
 import { UserdatalistPage } from '../userdatalist/userdatalist';
+import { ScanPage } from '../scan/scan';
 import { SettingsProvider } from '../../providers/settings/settings';
+import { VersionsPage } from '../versions/versions';
 /**
  * Generated class for the MorePage page.
  *
@@ -96,5 +98,13 @@ export class MorePage extends BaseUI {
     else {
       this.settings.setActiveTheme('dark-theme');
     }
+  }
+
+  gotoScanQRCode() {
+    this.navCtrl.push(ScanPage, null, {'animate': false});
+  }
+
+  gotoVersions() {
+    this.navCtrl.push(VersionsPage);
   }
 }

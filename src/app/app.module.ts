@@ -18,6 +18,8 @@ import { DetailsPage } from '../pages/details/details';
 import { AnswerPage } from '../pages/answer/answer';
 import { ChatdetailsPage } from '../pages/chatdetails/chatdetails';
 import { UserdatalistPage } from '../pages/userdatalist/userdatalist';
+import { ScanPage } from '../pages/scan/scan';
+import { VersionsPage } from '../pages/versions/versions';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -33,6 +35,8 @@ import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 import { ChatserviceProvider } from '../providers/chatservice/chatservice';
+import { QRScanner } from '@ionic-native/qr-scanner';
+import { AppVersion } from '@ionic-native/app-version';
 
 import { RelativetimePipe } from '../pipes/relativetime/relativetime'
 import { SettingsProvider } from '../providers/settings/settings';
@@ -54,6 +58,8 @@ import { SettingsProvider } from '../providers/settings/settings';
     AnswerPage,
     ChatdetailsPage,
     UserdatalistPage,
+    ScanPage,
+    VersionsPage,
     TabsPage,
     RelativetimePipe
   ],
@@ -83,6 +89,8 @@ import { SettingsProvider } from '../providers/settings/settings';
     AnswerPage,
     ChatdetailsPage,
     UserdatalistPage,
+    ScanPage,
+    VersionsPage,
     TabsPage
   ],
   providers: [
@@ -94,6 +102,8 @@ import { SettingsProvider } from '../providers/settings/settings';
     Transfer,
     FilePath,
     Camera,
+    QRScanner,
+    AppVersion,
     EmojiProvider,
     ChatserviceProvider,
     SettingsProvider
